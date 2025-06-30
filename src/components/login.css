@@ -1,0 +1,135 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Login container styles */
+.login-container {
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%; /* Flexible width for smaller screens */
+  max-width: 400px; /* Limit the width for larger screens */
+  box-sizing: border-box;
+}
+
+/* Form styles */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button styles */
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Signup link styles */
+.signup-link {
+  text-align: center;
+  margin-top: 15px;
+  color: #666;
+}
+
+.signup-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  body {
+      flex-direction: column;
+      padding: 10px;
+  }
+
+  .login-container {
+      padding: 15px;
+  }
+
+  .btn {
+      font-size: 14px;
+      padding: 8px;
+  }
+
+  .form-group input {
+      font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+      padding: 10px;
+  }
+
+  .login-form h2 {
+      font-size: 20px;
+  }
+
+  .form-group input {
+      padding: 8px;
+  }
+
+  .btn {
+      padding: 8px;
+      font-size: 14px;
+  }
+
+  .signup-link {
+      font-size: 14px;
+  }
+}

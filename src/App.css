@@ -12,6 +12,16 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+:root {
+  --header-height: 70px;
+}
+
+.main-content {
+  padding-top: 80px; /* Try 80px for a little extra space */
+}
+
+
+
 
 .App-header {
   background-color: #282c34;

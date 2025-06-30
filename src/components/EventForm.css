@@ -1,0 +1,145 @@
+/* General Styles */
+body {
+  background-color: #f4f4f4;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Form Container */
+.max-w-2xl {
+  max-width: 42rem;
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+}
+
+.dark .max-w-2xl {
+  background: #2d2d2d;
+}
+
+/* Form Heading */
+h2 {
+  font-size: 1.85rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.dark h2 {
+  color: #fff;
+}
+
+/* Input Styles */
+.input-style {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  background: #f9f9f9;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.input-style:focus {
+  border-color: #ff5722;
+  box-shadow: 0px 0px 12px rgba(255, 87, 34, 0.4);
+  background: #fff;
+}
+
+.dark .input-style {
+  background: #444;
+  color: #fff;
+  border: 1px solid #666;
+}
+
+.dark .input-style:focus {
+  border-color: #ff9800;
+}
+
+/* Textarea Styling */
+textarea.input-style {
+  resize: none;
+  min-height: 120px;
+}
+
+/* Grid Styling for Inputs */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #ff5722, #e64a19);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #e64a19, #d84315);
+  transform: scale(1.03);
+}
+
+.submit-btn:disabled {
+  background: #bbb;
+  cursor: not-allowed;
+}
+
+/* Message Box */
+.p-3 {
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.bg-green-500 {
+  background: #4caf50;
+  color: white;
+}
+
+.bg-red-500 {
+  background: #d32f2f;
+  color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .max-w-2xl {
+    padding: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}

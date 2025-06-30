@@ -1,0 +1,122 @@
+/* Events.css */
+
+.events-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.events-container h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+}
+
+.events-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* equal width columns */
+  gap: 24px;
+  align-items: stretch; /* make grid items stretch to equal height */
+}
+
+.event-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* space between content and button */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+
+  /* Make all cards same height */
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.event-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: #34495e;
+  font-weight: 600;
+}
+.events-wrapper {
+  padding-top: 80px; /* Adjust this value to your header height */
+  box-sizing: border-box;
+}
+
+
+.event-card p {
+  font-size: 1rem;
+  margin: 6px 0;
+  line-height: 1.4;
+  color: #555;
+}
+
+.event-card p strong {
+  color: #2c3e50;
+}
+
+.book-now-button {
+  margin-top: 18px;
+  align-self: flex-start;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  border: none;
+  border-radius: 30px;
+  color: white;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37, 117, 252, 0.4);
+  transition: background 0.4s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.book-now-button:hover,
+.book-now-button:focus {
+  background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+  box-shadow: 0 6px 20px rgba(106, 17, 203, 0.6);
+  outline: none;
+}
+
+.error {
+  color: #e74c3c;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .events-container {
+    padding: 0 12px;
+  }
+
+  .events-container h2 {
+    font-size: 2rem;
+  }
+
+  .event-card {
+    padding: 20px 16px;
+  }
+
+  .book-now-button {
+    padding: 10px 24px;
+    font-size: 0.95rem;
+  }
+  
+  
+}
