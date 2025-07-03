@@ -1,122 +1,198 @@
 /* Events.css */
 
+:root {
+  --primary-color: #4a90e2;
+  --primary-gradient: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  --primary-gradient-hover: linear-gradient(135deg, #357abd 0%, #4a90e2 100%);
+  --text-color-dark: #22303c;
+  --text-color-light: #4a5a6a;
+  --background-color: #f9fbfd;
+  --card-bg: #ffffff;
+  --shadow-light: rgba(31, 42, 56, 0.08);
+  --shadow-dark: rgba(31, 42, 56, 0.15);
+  --border-radius: 16px;
+  --transition-speed: 0.35s;
+}
+
+.events-wrapper {
+  padding-top: 80px; /* space for fixed header if any */
+  background-color: var(--background-color);
+  min-height: 100vh;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .events-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
+  max-width: 1200px;
+  width: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
+  color: var(--text-color-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .events-container h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #2c3e50;
-  letter-spacing: 1.2px;
+  font-size: 2.75rem;
+  margin-bottom: 40px;
+  color: var(--text-color-dark);
+  letter-spacing: 1.5px;
   font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: 0 1px 3px rgba(31, 42, 56, 0.1);
+  user-select: none;
 }
 
 .events-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* equal width columns */
-  gap: 24px;
-  align-items: stretch; /* make grid items stretch to equal height */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+  width: 100%;
+  align-items: stretch;
 }
 
 .event-card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  padding: 24px 20px;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 20px var(--shadow-light);
+  padding: 28px 24px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* space between content and button */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  justify-content: space-between;
+  transition: transform var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
   cursor: default;
-
-  /* Make all cards same height */
   height: 100%;
   box-sizing: border-box;
+  will-change: transform;
 }
 
 .event-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px var(--shadow-dark);
 }
 
 .event-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 12px;
-  color: #34495e;
-  font-weight: 600;
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+  color: var(--text-color-dark);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  user-select: text;
 }
-.events-wrapper {
-  padding-top: 80px; /* Adjust this value to your header height */
-  box-sizing: border-box;
-}
-
 
 .event-card p {
-  font-size: 1rem;
-  margin: 6px 0;
-  line-height: 1.4;
-  color: #555;
+  font-size: 1.05rem;
+  margin: 8px 0;
+  line-height: 1.5;
+  color: var(--text-color-light);
+  flex-grow: 1;
+  user-select: text;
 }
 
 .event-card p strong {
-  color: #2c3e50;
+  color: var(--text-color-dark);
+  user-select: text;
 }
 
 .book-now-button {
-  margin-top: 18px;
+  margin-top: 22px;
   align-self: flex-start;
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  background: var(--primary-gradient);
   border: none;
   border-radius: 30px;
-  color: white;
-  padding: 12px 28px;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  color: #fff;
+  padding: 14px 34px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(37, 117, 252, 0.4);
-  transition: background 0.4s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 18px rgba(53, 122, 189, 0.5);
+  transition: background 0.4s ease, box-shadow 0.3s ease, transform 0.2s ease;
   text-decoration: none;
+  user-select: none;
 }
 
 .book-now-button:hover,
 .book-now-button:focus {
-  background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
-  box-shadow: 0 6px 20px rgba(106, 17, 203, 0.6);
+  background: var(--primary-gradient-hover);
+  box-shadow: 0 8px 26px rgba(74, 144, 226, 0.7);
   outline: none;
-}
-
-.error {
-  color: #e74c3c;
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: 20px;
+  transform: scale(1.05);
 }
 
 /* Responsive tweaks */
-@media (max-width: 480px) {
-  .events-container {
-    padding: 0 12px;
+@media (max-width: 768px) {
+  .events-wrapper {
+    padding-top: 70px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .events-container h2 {
-    font-size: 2rem;
+    font-size: 2.25rem;
+    margin-bottom: 32px;
+  }
+
+  .events-list {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 22px;
+  }
+
+  .event-card {
+    padding: 22px 18px;
+  }
+
+  .event-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .event-card p {
+    font-size: 1rem;
+  }
+
+  .book-now-button {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .events-wrapper {
+    padding-top: 60px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .events-container h2 {
+    font-size: 1.9rem;
+    margin-bottom: 24px;
+  }
+
+  .events-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .event-card {
     padding: 20px 16px;
   }
 
+  .event-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .event-card p {
+    font-size: 0.95rem;
+  }
+
   .book-now-button {
     padding: 10px 24px;
     font-size: 0.95rem;
   }
-  
-  
 }

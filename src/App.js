@@ -7,32 +7,30 @@ import Login from "./components/Login";
 import Signup from "./components/SignupForm";
 import BookNow from "./components/BookNow";
 import AboutUs from "./components/AboutUs";
-import AdminLogin from "./components/AdminLogin";
 import AllBookings from "./components/AllBookings";
 import EventForm from "./components/EventForm";
 import MyBookings from "./components/MyBookings";
+import AdminUsers from "./components/AdminUsers";
 
 function App() {
   return (
-    <>
-    <Header />
-<div className="main-content">
-  <Routes>
-  <Route path="/" element={<Home />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/book/:eventId" element={<BookNow />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/adminLogin" element={<AdminLogin />} />
-        <Route path="/create-event" element={<EventForm />} />
-        <Route path="/all-bookings" element={<AllBookings />} />
-        <Route path="/my-bookings" element={<MyBookings/>} />
-
-  </Routes>
-</div>
-
-    </>
+    <div className="App">
+      <Header />
+      <div className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/book/:eventId" element={<BookNow />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/create-event" element={<EventForm />} />
+          <Route path="/all-bookings" element={<AllBookings />} />
+          <Route path="/my-bookings" element={<MyBookings />} />
+          <Route path="/admin/users" element={<AdminUsers />} />
+        </Routes>
+      </div>
+    </div>
   );
 }
 

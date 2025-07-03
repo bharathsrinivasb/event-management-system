@@ -4,10 +4,10 @@ import "./Header.css";
 
 const Header = () => {
   const [user, setUser] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Retrieve user info from localStorage once component mounts
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       try {
@@ -20,68 +20,118 @@ const Header = () => {
   }, []);
 
   const isLoggedIn = !!user;
-  const isAdmin = user?.username === "admin";
+  const isAdmin = user?.role === "admin";
 
   const handleLogout = () => {
     localStorage.removeItem("user");
     setUser(null);
     navigate("/");
+    setMenuOpen(false);
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
+  const handleLinkClick = () => {
+    setMenuOpen(false);
   };
 
   return (
     <nav className="navbar" role="navigation" aria-label="Main navigation">
       <div className="logo">
-        <Link to="/" aria-label="Go to homepage">
+        <Link to="/" aria-label="Go to homepage" onClick={handleLinkClick}>
           EventBooking
         </Link>
       </div>
 
-      <ul className="nav-links">
+      {/* Hamburger menu button */}
+      <button
+        className={`menu-toggle ${menuOpen ? "open" : ""}`}
+        onClick={toggleMenu}
+        aria-label={menuOpen ? "Close menu" : "Open menu"}
+        aria-expanded={menuOpen}
+      >
+        <span className="hamburger"></span>
+      </button>
+
+      {/* Navigation links */}
+      <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" onClick={handleLinkClick}>
+            Home
+          </Link>
         </li>
 
         <li>
-          <Link to="/events">Events</Link>
+          <Link to="/events" onClick={handleLinkClick}>
+            Events
+          </Link>
         </li>
 
         <li>
-          <Link to="/about">About Us</Link>
+          <Link to="/about" onClick={handleLinkClick}>
+            About Us
+          </Link>
         </li>
 
         {/* Show My Bookings only for logged-in non-admin users */}
         {isLoggedIn && !isAdmin && (
           <li>
-            <Link to="/my-bookings">My Bookings</Link>
+            <Link to="/my-bookings" onClick={handleLinkClick}>
+              My Bookings
+            </Link>
           </li>
         )}
 
-        {isLoggedIn ? (
+        {/* Admin-specific links */}
+        {isAdmin && (
           <>
-            {/* Optionally, show Admin Panel link for admins */}
-            {isAdmin && (
-              <li>
-                <Link to="/admin">Admin Panel</Link>
-              </li>
-            )}
             <li>
-              <button
-                className="logout-btn"
-                onClick={handleLogout}
-                aria-label="Logout"
-              >
-                Logout
-              </button>
+              <Link to="/create-event" onClick={handleLinkClick}>
+                Manage Events
+              </Link>
+            </li>
+            <li>
+              <Link to="/admin/users" onClick={handleLinkClick}>
+                Users
+              </Link>
+            </li>
+            <li>
+              <Link to="/all-bookings" onClick={handleLinkClick}>
+                All Bookings
+              </Link>
+            </li>
+            <li>
+              <Link to="/admin/dashboard" onClick={handleLinkClick}>
+                Admin Panel
+              </Link>
             </li>
           </>
+        )}
+
+        {isLoggedIn ? (
+          <li>
+            <button
+              className="logout-btn"
+              onClick={handleLogout}
+              aria-label="Logout"
+            >
+              Logout
+            </button>
+          </li>
         ) : (
           <>
             <li>
-              <Link to="/login">Login</Link>
+              <Link to="/login" onClick={handleLinkClick}>
+                Login
+              </Link>
             </li>
 
             <li>
-              <Link to="/signup">Sign Up</Link>
+              <Link to="/signup" onClick={handleLinkClick}>
+                Sign Up
+              </Link>
             </li>
           </>
         )}
